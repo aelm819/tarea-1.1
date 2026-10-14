@@ -10,10 +10,9 @@ Se necesita una instancia de AWS con Ubuntu Server, acceso SSH con permisos `sud
 - **HTTP**, puerto 80, para acceder al sitio.
 - **HTTPS**, puerto 443, si se configura TLS.
 
-No abras el puerto 3306 de MySQL a Internet. Comprueba la versión del sistema y actualiza los paquetes:
+Comprueba la versión del sistema y actualiza los paquetes:
 
-```bash
-lsb_release -ds
+```bash 
 sudo apt update
 sudo apt upgrade -y
 ```
