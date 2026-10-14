@@ -41,7 +41,7 @@ sudo systemctl status apache2 --no-pager
 sudo systemctl status mysql --no-pager
 ```
 
-Visita `http://IP_PUBLICA_DE_LA_INSTANCIA/`. La página predeterminada de Apache confirma que el servidor web responde.
+Visita `http://54.82.187.176/`. La página predeterminada de Apache confirma que el servidor web responde.
 
 ### Probar PHP
 
@@ -51,7 +51,7 @@ Crea temporalmente una página de prueba:
 echo '<?php phpinfo();' | sudo tee /var/www/html/info.php
 ```
 
-Visita `http://IP_PUBLICA_DE_LA_INSTANCIA/info.php`. Después de comprobar PHP, elimina el archivo, ya que muestra información de configuración:
+Visita `http://54.82.187.176/info.php`. Después de comprobar PHP, elimina el archivo, ya que muestra información de configuración:
 
 ```bash
 sudo rm /var/www/html/info.php
@@ -96,7 +96,7 @@ test -e /etc/apache2/conf-available/phpmyadmin.conf && sudo a2enconf phpmyadmin
 sudo systemctl reload apache2
 ```
 
-Accede a `http://IP_PUBLICA_DE_LA_INSTANCIA/phpmyadmin` e inicia sesión con un usuario de MySQL. No expongas esta interfaz públicamente sin protección: utiliza HTTPS y limita el acceso por IP, VPN u otro mecanismo adecuado.
+Accede a `http://54.82.187.176/phpmyadmin` e inicia sesión con un usuario de MySQL. No expongas esta interfaz públicamente sin protección: utiliza HTTPS y limita el acceso por IP, VPN u otro mecanismo adecuado.
 
 ## 4. Adminer
 
@@ -113,7 +113,7 @@ test -e /etc/apache2/conf-available/adminer.conf && sudo a2enconf adminer
 sudo systemctl reload apache2
 ```
 
-Accede a `http://IP_PUBLICA_DE_LA_INSTANCIA/adminer` si esa ruta está habilitada por el paquete. En la pantalla de inicio de sesión selecciona **MySQL** y utiliza como servidor `localhost`, junto con las credenciales de MySQL.
+Accede a `http://54.82.187.176/adminer` si esa ruta está habilitada por el paquete. En la pantalla de inicio de sesión selecciona **MySQL** y utiliza como servidor `localhost`, junto con las credenciales de MySQL.
 
 Al igual que phpMyAdmin, Adminer debe protegerse y no debería quedar expuesto sin HTTPS y restricciones de acceso.
 
@@ -180,7 +180,7 @@ sudo apache2ctl configtest
 sudo systemctl reload apache2
 ```
 
-Crea una página de prueba y visita `http://IP_PUBLICA_DE_LA_INSTANCIA/privado/`. Apache debe solicitar el usuario y la contraseña:
+Crea una página de prueba y visita `http://54.82.187.176/privado/`. Apache debe solicitar el usuario y la contraseña:
 
 ```bash
 echo '<h1>Acceso autorizado</h1>' | sudo tee /var/www/html/privado/index.html
