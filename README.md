@@ -108,7 +108,7 @@ sudo rm /var/www/html/info.php
 
 ![Prueba de PHP](imagenes/phpInfo.png)
 
-*Figura 3. Página de prueba PHP (`phpinfo()`) en el servidor Apache.*
+*Figura 4. Página de prueba PHP (`phpinfo()`) en el servidor Apache.*
 
 ## 3. Instalación de herramientas de gestión y monitorización
 
@@ -138,7 +138,7 @@ Accede a `http://54.82.187.176/phpmyadmin` e inicia sesión con un usuario de My
 
 ![Acceso a phpMyAdmin](imagenes/phpmyadmin.png)
 
-*Figura 3. Interfaz de inicio de sesión de phpMyAdmin.*
+*Figura 5. Interfaz de inicio de sesión de phpMyAdmin.*
 
 ### 3.2. Adminer
 
@@ -153,11 +153,8 @@ sudo chown -R www-data:www-data /var/www/html/adminer
 Accede a `http://54.82.187.176/adminer`. En el formulario, selecciona **MySQL**, introduce `localhost` como servidor y proporciona las credenciales de la base de datos.
 
 ![Acceso a Adminer](imagenes/adminer.png)
-![Prueba de PHP](imagenes/php.png)
 
-*Figura 3. Página de prueba PHP (`phpinfo()`) en el servidor Apache.*
-
-*Figura 4. Interfaz de inicio de sesión de Adminer.*
+*Figura 6. Interfaz de inicio de sesión de Adminer.*
 
 phpMyAdmin y Adminer son interfaces administrativas. En un servidor accesible desde Internet, protégelas mediante HTTPS y restricciones de acceso.
 
@@ -198,9 +195,6 @@ La configuración del VirtualHost utilizada por el proyecto se encuentra en:
 ```text
 /etc/apache2/sites-available/000-default.conf
 ```
-![Prueba de PHP](imagenes/php.png)
-
-*Figura 3. Página de prueba PHP (`phpinfo()`) en el servidor Apache.*
 
 Comprueba que el bloque `<Directory>` del directorio web permite las directivas de autenticación. Si no existe, añade esta configuración dentro del VirtualHost:
 
@@ -216,9 +210,6 @@ Comprueba la configuración y recarga Apache:
 ```bash
 sudo apache2ctl configtest
 sudo systemctl reload apache2
-![Prueba de PHP](imagenes/php.png)
-
-*Figura 3. Página de prueba PHP (`phpinfo()`) en el servidor Apache.*
 ```
 
 ### 4.2. Crear el archivo de contraseñas
@@ -270,11 +261,13 @@ sudo systemctl reload apache2
 
 Visita `http://54.82.187.176/privado/`. Apache solicitará el usuario y la contraseña creados con `htpasswd`.
 
+La autenticación básica debe utilizarse con HTTPS: si se transmite por HTTP, las credenciales no están protegidas durante el envío.
+
+
 ![Acceso protegido con htaccess](imagenes/htaccess.png)
 
-*Figura 5. Solicitud de usuario y contraseña para acceder al directorio protegido.*
+*Figura 7. Solicitud de usuario y contraseña para acceder al directorio protegido.*
 
-La autenticación básica debe utilizarse con HTTPS: si se transmite por HTTP, las credenciales no están protegidas durante el envío.
 
 ## 5. Comprobaciones finales
 
