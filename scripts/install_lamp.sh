@@ -26,7 +26,7 @@ a2enmod rewrite
 systemctl restart apache2
 
 # Copiar el archivo php/index.php a /var/www/html
-cp ../php/index.php /var/www/html
+cp ../php/info.php /var/www/html
 
 # Modificamos el propietario del diretoro /var/www/html
 chown -R www-data:www-data /var/www/html
